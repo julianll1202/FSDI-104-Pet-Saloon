@@ -53,10 +53,18 @@ header.site-init{
     padding: 1rem;
 }
 
+.container button{
+    margin-top: 20px;
+}
+
 .container h2{
     text-align: center;
 }
 
 .container p{
     margin-top: 10px;
+}
+
+#contact-info p span{
+    font-weight: bold;
 }

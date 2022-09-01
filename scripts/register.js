@@ -10,56 +10,68 @@ let petSalon ={
         street:"Rio Aros",
         zip:"21576"
     },
-    pets:[
-        {
-            name:"Scooby",
-            age:60,
-            gender:"Male",
-            breed:"Dane",
-            service:"Grooming",
-            owners:"Shaggy",
-            phone:"686 907 6542"
-        },
-        {
-            name:"Scrappy",
-            age:12,
-            gender:"Male",
-            breed:"Shiba Inu",
-            service:"Grooming",
-            owners:"Shaggy",
-            phone:"686 437 6542"
-        },
-        {
-            name:"Sammy",
-            age:16,
-            gender:"Male",
-            breed:"Cairn Terrier",
-            service:"Grooming",
-            owners:"Julian",
-            phone:"686 573 8531"
-        },
-        {
-            name:"Oreo",
-            age:1,
-            gender:"Male",
-            breed:"Bengal",
-            service:"Grooming",
-            owners:"Julian",
-            phone:"686 265 8702"
-        }
-    ]
+    pets:[]
 }
 
-console.log(petSalon.pets);
-
+//constructor
+function Pet(name,age,gender,breed,service,ownersName,contactPhone){
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.breed = breed;
+    this.service = service;
+    this.owner = ownersName;
+    this.phone = contactPhone;
+}
 function displaySalonInfo() {
-    document.getElementById("contact-info").innerHTML=`
-        <p>Name: ${petSalon.name}</p>
-        <p>Phone: ${petSalon.phone}</p>
-        <p>Address: ${petSalon.address.street}, ${petSalon.address.zip}, ${petSalon.address.city}, ${petSalon.address.state}  </p>
+    document.getElementById("contact-info").innerHTML+=`
+        <p><span>Name:</span> ${petSalon.name}</p>
+        <p><span>Phone:</span> ${petSalon.phone}</p>
+        <p><span>Address:</span> ${petSalon.address.street}, ${petSalon.address.zip}, ${petSalon.address.city}, ${petSalon.address.state}  </p>
     `;
 }
 
+let nameInput = document.getElementById("petName");
+let ageInput = document.getElementById("petAge");
+let genderInput = document.getElementById("petGender");
+let breedInput = document.getElementById("petBreed");
+let serviceSelect = document.getElementById("petService");
+let ownersName = document.getElementById("petOwner");
+let contactPhone = document.getElementById("contactPhone");
+
+
+function register(){
+    console.log(nameInput.value,ageInput.value,breedInput.value,genderInput.value);
+    let newPet = new Pet(nameInput.value,ageInput.value,genderInput.value,breedInput.value, serviceSelect.value, ownersName.value, contactPhone.value);
+    petSalon.pets.push(newPet);
+    console.log(petSalon.pets);
+    clearInputs();
+}
+
+function clearInputs(){
+    nameInput.value = "";
+    ageInput.value = "";
+    genderInput.value = "";
+    breedInput.value = "";
+    serviceSelect.value = "";
+    ownersName.value = "";
+    contactPhone.value = "";
+}
+
+function init(){
+    console.log("Registering");
+    let scooby=new Pet("Scooby",60,"Male","Dane","Grooming","Shaggy","666-666-666");
+    let oreo=new Pet("Oreo",1,"Male","American Shorthair","Grooming","Julian","666-567-384");
+    let sammy=new Pet("Sammy",17,"Male","Cairn Terrier","Grooming","Martha","686-183-441");
+    petSalon.pets.push(scooby);
+    petSalon.pets.push(oreo);
+    petSalon.pets.push(sammy);
+    displaySalonInfo();
+}
+
+window.onload=init;
+
+/*
 function displayPetNames(){
     alert(`There are ${petSalon.pets.length} pets registered`);
     for(let i=0; i<petSalon.pets.length; i++){
@@ -71,6 +83,6 @@ function displayPetNames(){
     }
 }
 
-
 displaySalonInfo();
 displayPetNames();
+*/
