@@ -68,3 +68,14 @@ header.site-init{
 #contact-info p span{
     font-weight: bold;
 }
+
+#pets{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.pet{
+    background-color: rgb(236, 247, 247);
+    padding: 1rem;
+    border-radius: 10px;
+    margin:10px auto;
+}

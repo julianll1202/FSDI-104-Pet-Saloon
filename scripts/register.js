@@ -39,13 +39,25 @@ let serviceSelect = document.getElementById("petService");
 let ownersName = document.getElementById("petOwner");
 let contactPhone = document.getElementById("contactPhone");
 
-
+function isValid(aPet){
+    let valid=true;
+    if(aPet.name=="" || aPet.phone=="" || aPet.service==""){
+        valid=false;
+    }
+    return valid;
+}
 function register(){
     console.log(nameInput.value,ageInput.value,breedInput.value,genderInput.value);
     let newPet = new Pet(nameInput.value,ageInput.value,genderInput.value,breedInput.value, serviceSelect.value, ownersName.value, contactPhone.value);
-    petSalon.pets.push(newPet);
-    console.log(petSalon.pets);
-    clearInputs();
+    if(isValid(newPet)){
+        petSalon.pets.push(newPet);
+        console.log(petSalon.pets);
+        clearInputs();
+        displayPetCards();
+    }else{
+        alert("Please fill all the form");
+    }
+    
 }
 
 function clearInputs(){
@@ -66,6 +78,7 @@ function init(){
     petSalon.pets.push(scooby);
     petSalon.pets.push(oreo);
     petSalon.pets.push(sammy);
+    displayPetCards();
     displaySalonInfo();
 }
 
