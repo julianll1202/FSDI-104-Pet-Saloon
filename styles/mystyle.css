@@ -69,13 +69,8 @@ header.site-init{
     font-weight: bold;
 }
 
-#pets{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-}
-.pet{
-    background-color: rgb(236, 247, 247);
-    padding: 1rem;
-    border-radius: 10px;
-    margin:10px auto;
+#pets-table{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
