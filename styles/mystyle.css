@@ -81,3 +81,19 @@ main{
     border: none;
 }
 
+/*Services*/
+.services-list{
+    list-style-type: none;;
+}
+
+.services-list li{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border-left: 5px solid skyblue;
+    background-color: white;
+}
+.services-list li:hover{
+    border-left: none;
+    border-right: 5px solid skyblue;
+}
